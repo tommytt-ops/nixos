@@ -2,7 +2,7 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ config, pkgs, inputs, username, home, ... }:
+{ pkgs, inputs, username, home, ... }:
  
 {
  
@@ -10,6 +10,7 @@
   imports =
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
+      ../../modules/nixos/steam.nix
     ];
 
   # Bootloader.
@@ -83,9 +84,6 @@
     isNormalUser = true;
     description = "Tommy Tran";
     extraGroups = [ "networkmanager" "wheel" ];
-    packages = with pkgs; [
-    #  thunderbird
-    ];
   };
 
   # Install firefox.
