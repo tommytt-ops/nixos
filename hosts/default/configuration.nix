@@ -102,6 +102,7 @@
      discord
      nixd
      git
+     lutris
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
