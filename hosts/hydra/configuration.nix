@@ -22,9 +22,5 @@
     # If you don't have such a file or don't plan to use remote builders, you can unset it:
     buildMachinesFiles = [];
 
-    # We'll run on port 3000 (instead of the default 3001).
-    # The hydra module does this by setting:
-    listenAddress = "127.0.0.1";
- 
   };
 }
