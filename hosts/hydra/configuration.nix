@@ -5,6 +5,10 @@
     ./hardware-configuration.nix
   ];
 
+  # Bootloader.
+  boot.loader.systemd-boot.enable = true;
+  boot.loader.efi.canTouchEfiVariables = true;
+
   # 1. Enable PostgreSQL
   services.postgresql.enable = true;
   services.postgresql.initialScript = ''
