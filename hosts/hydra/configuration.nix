@@ -25,7 +25,6 @@
     # We'll run on port 3000 (instead of the default 3001).
     # The hydra module does this by setting:
     listenAddress = "127.0.0.1";
-    extraOptions = "--port 3000";
  
   };
 }
