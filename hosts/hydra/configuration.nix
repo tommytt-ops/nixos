@@ -9,15 +9,7 @@
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
-  # 1. Enable PostgreSQL
-  services.postgresql.enable = true;
-  services.postgresql.initialScript = ''
-    CREATE USER hydra WITH PASSWORD 'hydrapass';
-    CREATE DATABASE hydra;
-    GRANT ALL PRIVILEGES ON DATABASE hydra TO hydra;
-  '';
-
-  # 2. Enable Hydra
+  # Enable Hydra
   services.hydra = {
     enable = true;
 
