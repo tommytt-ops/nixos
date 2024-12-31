@@ -26,17 +26,27 @@
   let 
     username = "tommyt";
     home = "/home/tommyt";
-  in
-    {
+  in {
       nixosConfigurations = {
-	default = nixpkgs.lib.nixosSystem {
-	  specialArgs = {inherit inputs username home;};
-	    modules = [
-	      ./hosts/default/configuration.nix
-	      inputs.stylix.nixosModules.stylix
-	      inputs.home-manager.nixosModules.default
-	    ];
-	};
+
+	      default = nixpkgs.lib.nixosSystem {
+	        specialArgs = {inherit inputs username home;};
+	          modules = [
+	            ./hosts/default/configuration.nix
+	            inputs.stylix.nixosModules.stylix
+	            inputs.home-manager.nixosModules.default
+	          ];
+	      };
+
+        hydra = nixpkgs.lib.nixosSystem {
+          specialArgs = {inherit inputs username home;};
+            modules = [
+              ./hosts/hydra/configuration.nix
+              inputs.stylix.nixosModules.stylix
+              inputs.home-manager.nixosModules.default
+            ]
+        }
       };
+
     };
 }
