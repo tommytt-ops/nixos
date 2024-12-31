@@ -24,6 +24,8 @@
     # This is the base URL Hydra will use in its UI and links
     hydraURL = "http://localhost:3000";
 
+    notificationSender = "hydra@localhost"; # e-mail of hydra service
+
     # Let Hydra use substitutes (binary caches) so you don’t build everything from scratch
     useSubstitutes = true;
 
