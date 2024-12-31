@@ -1,5 +1,10 @@
 { config, pkgs, ... }:
 {
+
+  imports = [
+    ./hardware-configuration.nix
+  ];
+
   # 1. Enable PostgreSQL
   services.postgresql.enable = true;
   services.postgresql.initialScript = ''
@@ -23,4 +28,6 @@
     buildMachinesFiles = [];
 
   };
+  
+  system.stateVersion = "24.05";
 }
