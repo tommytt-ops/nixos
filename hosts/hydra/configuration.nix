@@ -26,14 +26,6 @@
     # The hydra module does this by setting:
     listenAddress = "127.0.0.1";
     extraOptions = "--port 3000";
-
-    # Telling Hydra explicitly about the PostgreSQL DB (optional if you go with defaults)
-    database = {
-      type = "postgresql";
-      host = "/run/postgresql";  # local socket
-      database = "hydra";
-      user = "hydra";
-      password = "hydrapass";
-    };
+ 
   };
 }
