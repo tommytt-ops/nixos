@@ -44,8 +44,8 @@
               ./hosts/hydra/configuration.nix
               inputs.stylix.nixosModules.stylix
               inputs.home-manager.nixosModules.default
-            ]
-        }
+            ];
+        };
       };
 
     };
