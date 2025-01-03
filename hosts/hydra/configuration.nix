@@ -1,31 +1,37 @@
-{ config, pkgs, ... }:
+{ pkgs, inputs, username, home, ... }:
 {
 
   imports = [
     ./hardware-configuration.nix
+    ../../moduels/nixos/hydra.nix
   ];
 
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
-  # Enable Hydra
-  services.hydra = {
-    enable = true;
-
-    # This is the base URL Hydra will use in its UI and links
-    hydraURL = "http://localhost:3000";
-
-    notificationSender = "hydra@localhost"; # e-mail of hydra service
-
-    # Let Hydra use substitutes (binary caches) so you don’t build everything from scratch
-    useSubstitutes = true;
-
-    # Hydra, by default, references /etc/nix/machines for remote builders
-    # If you don't have such a file or don't plan to use remote builders, you can unset it:
-    buildMachinesFiles = [];
-
+  users = {
+	    users.${username} = {
+	        isNormalUser = true;
+	        extraGroups = [ "networkmanager" "docker" "wheel" ];
+	};
   };
-  
+
+  virtualisation.docker.rootless = {
+	  enable = true;
+	  setSocketVariable = true;
+  };
+
+  environment.systemPackages = with pkgs; [
+    hydra
+	  vim 
+   	wget
+	  docker
+	  binutils
+	  gcc
+	  docker-compose
+	  ripgrep
+  ];
+
   system.stateVersion = "24.05";
 }
