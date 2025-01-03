@@ -3,7 +3,7 @@
 
   imports = [
     ./hardware-configuration.nix
-    ../../moduels/nixos/hydra.nix
+    ../../modules/nixos/hydra.nix
   ];
 
   # Bootloader.
