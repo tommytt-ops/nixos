@@ -23,7 +23,6 @@
   };
 
   environment.systemPackages = with pkgs; [
-    hydra
 	  vim 
    	wget
 	  docker
