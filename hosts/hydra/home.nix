@@ -5,17 +5,17 @@
  
     # Important
     home = {
-	username = username; 
-	homeDirectory = home;
-	sessionVariables = {
-	    EDITOR = "nvim";
-	};
+	    username = username; 
+	    homeDirectory = home;
+	    sessionVariables = {
+	        EDITOR = "nvim";
+	    };
     };
 
     programs = { 
-	alacritty.enable = true;
-	fastfetch.enable = true;
-	home-manager.enable = true; # Let Home Manager manage itself
+	    alacritty.enable = true;
+	    fastfetch.enable = true;
+	    home-manager.enable = true; # Let Home Manager manage itself
     };
 
     # Bluetooth media controls
