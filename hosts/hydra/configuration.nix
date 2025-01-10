@@ -1,11 +1,12 @@
 { pkgs, inputs, username, home, ... }:
 {
 
-  nix.settings.experimental-features = [ "nix-command" "flakes"]
-  imports = [
-    ./hardware-configuration.nix
-    ../../modules/nixos/hydra.nix
-  ];
+  nix.settings.experimental-features = [ "nix-command" "flakes"];
+  imports = 
+    [
+      ./hardware-configuration.nix
+      ../../modules/nixos/hydra.nix
+    ];
 
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
