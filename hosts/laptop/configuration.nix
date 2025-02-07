@@ -105,23 +105,20 @@
   ];
 
   systemd.services.GoWebApp = {
-  enable = true;
-  serviceConfig = {
-    User = "tommyt";
-    WorkingDirectory = "/home/tommyt";
-    
-    ExecStartPre = ''
-      [ ! -d "/home/tommyt/go-webapp" ] && git clone https://github.com/tommytt-ops/ACIT4045_Prosjekt.git /home/tommyt/go-webapp
-    '';
+   enable = true;
+   serviceConfig = {
+     User = "tommyt";
+     WorkingDirectory = "/home/tommyt";
 
-    ExecStart = ''
-      cd /home/tommyt/go-webapp && ${pkgs.go}/bin/go run main.go
-    '';
+     ExecStartPre = "${pkgs.bash}/bin/bash -c '[ ! -d /home/tommyt/go-webapp ] && ${pkgs.git}/bin/git clone https://github.com/tommytt-ops/ACIT4045_Prosjekt.git /home/tommyt/go-webapp'";
 
-    Restart = "on-failure";
+     ExecStart = "${pkgs.bash}/bin/bash -c 'cd /home/tommyt/go-webapp && ${pkgs.go}/bin/go run main.go'";
+
+     Restart = "on-failure";
+   };
+   wantedBy = [ "multi-user.target" ];
   };
-  wantedBy = [ "multi-user.target" ];
-};
+
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
