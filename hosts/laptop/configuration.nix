@@ -104,12 +104,12 @@
     go
   ];
 
-  systemd.services.myGoWebApp = {
+  systemd.services.GoWebApp = {
+    User = "tommyt";
     serviceConfig = {
       User = "tommyt";
       ExecStartPre = ''
           cd ~
-          echo "Cloning repository..."
           git clone https://github.com/tommytt-ops/ACIT4045_Prosjekt.git go-webapp
       '';
     
