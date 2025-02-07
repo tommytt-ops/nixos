@@ -107,7 +107,6 @@
   systemd.services.GoWebApp = {
     User = "tommyt";
     serviceConfig = {
-      User = "tommyt";
       ExecStartPre = ''
           cd ~
           git clone https://github.com/tommytt-ops/ACIT4045_Prosjekt.git go-webapp
