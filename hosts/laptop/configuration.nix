@@ -105,6 +105,7 @@
   ];
 
   systemd.services.GoWebApp = {
+    enable = true;
     serviceConfig = {
       User = "tommyt";
       WorkingDirectory = "/home/tommyt";
