@@ -107,13 +107,13 @@
   systemd.services.GoWebApp = {
     serviceConfig = {
       User = "tommyt";
+      WorkingDirectory = "/home/tommyt";
       ExecStartPre = "
-          cd ~
           git clone https://github.com/tommytt-ops/ACIT4045_Prosjekt.git go-webapp
       ";
     
       ExecStart = "
-        cd ~/go-webapp
+        cd go-webapp
         ${pkgs.go}/bin/go run main.go
       ";
       Restart = "on-failure";
