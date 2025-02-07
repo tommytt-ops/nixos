@@ -110,18 +110,15 @@
     wantedBy = [ "multi-user.target" ];
 
     serviceConfig = {
-      
       User = "tommyt";
-      WorkingDirectory = "/var/lib/go-webapp";
       ExecStartPre = ''
-        if [ ! -d /var/lib/my-go-webapp ]; then
+          cd ~
           echo "Cloning repository..."
-          git clone https://github.com/tommytt-ops/ACIT4045_Prosjekt.git /var/lib/go-webapp
-        fi
+          git clone https://github.com/tommytt-ops/ACIT4045_Prosjekt.git go-webapp
       '';
     
       ExecStart = ''
-        cd /var/lib/go-webapp
+        cd ~/go-webapp
         ${pkgs.go}/bin/go run main.go
       '';
       Restart = "on-failure";
