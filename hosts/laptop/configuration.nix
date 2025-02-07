@@ -105,10 +105,6 @@
   ];
 
   systemd.services.myGoWebApp = {
-    description = "My Go Web Application";
-    after = [ "network-online.target" ];
-    wantedBy = [ "multi-user.target" ];
-
     serviceConfig = {
       User = "tommyt";
       ExecStartPre = ''
