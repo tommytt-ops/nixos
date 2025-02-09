@@ -110,7 +110,7 @@
      User = "tommyt";
      WorkingDirectory = "/home/tommyt";
 
-     ExecStartPre = "${pkgs.bash}/bin/bash -c '[ ! -d /home/tommyt/go-webapp ] && ${pkgs.git}/bin/git clone https://github.com/tommytt-ops/ACIT4045_Prosjekt.git /home/tommyt/go-webapp'";
+     ExecStartPre = "${pkgs.bash}/bin/bash -c 'if [ ! -d /home/tommyt/go-webapp ]; then ${pkgs.git}/bin/git clone https://github.com/tommytt-ops/ACIT4045_Prosjekt.git /home/tommyt/go-webapp; fi'";
 
      ExecStart = "${pkgs.bash}/bin/bash -c 'cd /home/tommyt/go-webapp && ${pkgs.go}/bin/go run main.go'";
 
