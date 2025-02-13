@@ -117,6 +117,7 @@
      Restart = "on-failure";
    };
    wantedBy = [ "multi-user.target" ];
+   restartIfChanged = true;
   };
 
 
