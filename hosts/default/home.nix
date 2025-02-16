@@ -15,8 +15,8 @@
         tf_aa = "terraform apply --auto-approve";
         tf_p = "terraform paln";
         tf_d = "terraform destroy";
-        tf_da = "terraform destroy --auto-approve;
-    }
+        tf_da = "terraform destroy --auto-approve";
+    };
     };
 
     programs = { 
@@ -32,8 +32,5 @@
     home.packages = with pkgs; [ 
     ];
 
-    home.shellAliases
-
     home.stateVersion = "24.05"; # Dont touch
-
 }
