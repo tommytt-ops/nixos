@@ -9,7 +9,7 @@
   nix.settings.experimental-features = [ "nix-command" "flakes"];
   imports =
     [ # Include the results of the hardware scan.
-      ./hardware-configuration.nix
+      ../../../hardware-configuration.nix
       ../../modules/nixos/steam.nix
       ../../modules/nixos/nvidia.nix
     ];
