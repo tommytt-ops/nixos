@@ -23,7 +23,7 @@
 	    alacritty.enable = true;
 	    fastfetch.enable = true;
 	    home-manager.enable = true; # Let Home Manager manage itself
-        bash.enable = true
+        bash.enable = true;
     };
 
     # Bluetooth media controls
