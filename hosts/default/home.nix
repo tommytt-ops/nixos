@@ -10,6 +10,13 @@
 	sessionVariables = {
 	    EDITOR = "nvim";
 	};
+    shellAliases = {
+        tf_i = "terraform init";
+        tf_aa = "terraform apply --auto-approve";
+        tf_p = "terraform paln";
+        tf_d = "terraform destroy";
+        tf_da = "terraform destroy --auto-approve;
+    }
     };
 
     programs = { 
@@ -24,6 +31,8 @@
     # The home.packages option allows you to install Nix packages into your environment.
     home.packages = with pkgs; [ 
     ];
+
+    home.shellAliases
 
     home.stateVersion = "24.05"; # Dont touch
 
