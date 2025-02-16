@@ -13,7 +13,7 @@
     shellAliases = {
         tf_i = "terraform init";
         tf_aa = "terraform apply --auto-approve";
-        tf_p = "terraform paln";
+        tf_p = "terraform plan";
         tf_d = "terraform destroy";
         tf_da = "terraform destroy --auto-approve";
     };
