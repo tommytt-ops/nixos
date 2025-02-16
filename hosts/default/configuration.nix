@@ -55,6 +55,14 @@
     variant = "";
   };
 
+  # Bluetooth
+  hardware.bluetooth = {
+      enable = true;
+      powerOnBoot = true;
+  };
+
+  services.blueman.enable = true;
+
   # Configure console keymap
   console.keyMap = "no";
 
