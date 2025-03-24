@@ -26,6 +26,7 @@
   let 
     username = "tommyt";
     home = "/home/tommyt";
+    pkgs = nixpkgs.legacyPackages."x86_64-linux";
   in {
       nixosConfigurations = {
 
@@ -57,6 +58,10 @@
 	          ];
 	      };
       };
+
+      devShells."x86_64-linux".default = pkgs.mkShell {
+        packages = [ pkgs.python3 ];
+      }
 
     };
 }
