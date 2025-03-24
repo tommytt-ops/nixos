@@ -52,7 +52,7 @@
         laptop = nixpkgs.lib.nixosSystem {
 	        specialArgs = {inherit inputs username home;};
 	          modules = [
-	            ./hosts/laptop/configuration.nix
+	            ./hosts/laptop/configuration.nixi
 	            inputs.stylix.nixosModules.stylix
 	            inputs.home-manager.nixosModules.default
 	          ];
@@ -61,7 +61,7 @@
 
       devShells."x86_64-linux".default = pkgs.mkShell {
         packages = [ pkgs.python3 ];
-      }
+      };
 
     };
 }
