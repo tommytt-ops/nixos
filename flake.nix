@@ -32,6 +32,11 @@
       lib = nixpkgs.lib;
     };
   in {
+
+    modules = {
+      python = pythonEnv;
+    };
+    
       nixosConfigurations = {
 
 	      default = nixpkgs.lib.nixosSystem {
