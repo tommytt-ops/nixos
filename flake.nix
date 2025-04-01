@@ -27,6 +27,10 @@
     username = "tommyt";
     home = "/home/tommyt";
     pkgs = nixpkgs.legacyPackages."x86_64-linux";
+    pythonEnv = import ./modules/devShell/python.nix {
+      pkgs = pkgs;
+      lib = nixpkgs.lib;
+    };
   in {
       nixosConfigurations = {
 
@@ -60,7 +64,11 @@
       };
 
       devShells."x86_64-linux".default = pkgs.mkShell {
-        packages = [ pkgs.python3 ];
+        packages = with pkgs; [
+          openssh
+          git
+          python311
+        ] ++ pythonEnv.buildInputs;
       };
 
     };
