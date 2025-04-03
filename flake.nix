@@ -73,7 +73,12 @@
           openssh
           git
           python311
+          openssl
         ] ++ pythonEnv.buildInputs;
+
+        shellHook = ''
+          openssl s_client -connect google.com:443 -servername google.com </dev/null
+        ''
       };
 
     };
