@@ -27,14 +27,18 @@
     username = "tommyt";
     home = "/home/tommyt";
     pkgs = nixpkgs.legacyPackages."x86_64-linux";
-    pythonEnv = import ./modules/devShell/python.nix {
+    pythonEnv311 = import ./modules/devShell/python311.nix {
+      pkgs = pkgs;
+      lib = nixpkgs.lib;
+    };
+    pythonEnv312 = import ./modules/devShell/python312.nix {
       pkgs = pkgs;
       lib = nixpkgs.lib;
     };
   in {
 
     modules = {
-      python = pythonEnv;
+      python311 = pythonEnv311;
     };
     
       nixosConfigurations = {
@@ -68,18 +72,21 @@
 	      };
       };
 
-      devShells."x86_64-linux".default = pkgs.mkShell {
+      devShells."x86_64-linux".python311 = pkgs.mkShell {
         packages = with pkgs; [
           openssh
           git
           python311
-          openssl
-        ] ++ pythonEnv.buildInputs;
+        ] ++ pythonEnv311.buildInputs;
+      };
+  
+      devShells."x86_64-linux".python312 = pkgs.mkShell {
+        packages = with pkgs; [
+          openssh
+          git
+          python312 
+        ] ++ pythonEnv312.buildInputs;
+      };
 
-        shellHook = ''
-          openssl s_client -connect google.com:443 -servername google.com </dev/null
-        '';
-     };
-  };
+    };
 }
-
