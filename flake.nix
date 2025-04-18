@@ -83,11 +83,11 @@
   
       devShells."x86_64-linux".python312 = pkgs.mkShell {
         packages = with pkgs; [
-          openssh
+          openssl
           git
           python312 
         ] ++ pythonEnv312.buildInputs;
+        shellHook = ''openssl s_client -connect google.com:443 -servername google.com </dev/null 2>/dev/null | openssl x509 -noout -issuer -subject -dates'';
       };
-
     };
 }
