@@ -66,7 +66,7 @@
         laptop = nixpkgs.lib.nixosSystem {
 	        specialArgs = {inherit inputs username home;};
 	          modules = [
-	            ./hosts/laptop/configuration.nixi
+	            ./hosts/laptop/configuration.nix
 	            inputs.stylix.nixosModules.stylix
 	            inputs.home-manager.nixosModules.default
 	          ];
