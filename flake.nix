@@ -36,11 +36,6 @@
       lib = nixpkgs.lib;
     };
   in {
-
-    modules = {
-      python311 = pythonEnv311;
-      python312 = pythonEnv312;
-    };
     
       nixosConfigurations = {
 
